@@ -1,0 +1,28 @@
+{
+  "dashboard": {
+    "label": "Threat Hunting Overview",
+    "description": "Summary of brute force, lateral movement, persistence detections",
+    "visualizations": [
+      {
+        "title": "Failed Logons Over Time",
+        "search": "index=winsec EventCode=4625 | timechart count"
+      },
+      {
+        "title": "Brute Force Success",
+        "search": "(index=winsec EventCode=4625 OR EventCode=4624) | stats count by src_ip, TargetUserName"
+      },
+      {
+        "title": "RDP Rare Source",
+        "search": "index=winsec EventCode=4624 LogonType=10 | rare src_ip by TargetUserName"
+      },
+      {
+        "title": "Admin Share Access",
+        "search": "index=winsec EventCode=5140 (ShareName=\"\\\\\\\\*\\\\ADMIN$\" OR ShareName=\"\\\\\\\\*\\\\C$\") | stats count by src_ip, Account_Name"
+      },
+      {
+        "title": "Persistence Summary",
+        "search": "index=winsec (EventCode=4720 OR EventCode=4698 OR EventCode=7045) OR index=sysmon EventCode=13 | stats count by EventCode"
+      }
+    ]
+  }
+}
