@@ -1,4 +1,4 @@
-# Splunk Threat Hunting Lab 🕵️‍♂️
+# SOC Log Hunting Using SPLUNK and MITRE ATT&CK 🕵️‍♂️
 ## 🔎 Overview
 This lab simulates a mini SOC workflow in **Splunk**:
 - Ingest **sample logs** (Windows Security, Sysmon, Linux auth)
@@ -33,8 +33,6 @@ The `dashboards/Threat_Hunting_Overview.json` file contains:
 - RDP rare source logons
 - Admin share access
 - Persistence summary
-## 🖼️ Screenshots
-See `/screenshots/README.md` for mock screenshot descriptions.
 ## ✅ Results (short)
 - Detected brute force attempts with eventual success
 - Observed RDP lateral movement and admin share access
